@@ -1,2 +1,4 @@
-sky
-No string found
+2
+8
+18
+20

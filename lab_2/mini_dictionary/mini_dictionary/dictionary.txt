@@ -1,5 +1,5 @@
-man mujchina
-woman jenshina
-child rebenok
-boy malchik
-girl devochka
+boy мальчик
+child ребенок
+girl девочка
+man мужчина
+woman женщина
