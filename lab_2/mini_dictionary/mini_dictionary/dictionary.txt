@@ -1,10 +1,6 @@
- женщина
-boy мальчик
-cat кошка
-child ребенок
-dog собака
-garden сад
-girl девочка
-man мужчина
-sun солнце
-woman женщина
+brother брат
+father папа
+hello привет 
+mother мама
+sister сестра
+tree дерево 
