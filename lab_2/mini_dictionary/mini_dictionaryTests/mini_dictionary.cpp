@@ -15,7 +15,6 @@ Dictionary GetDictionary(char* fileName)
 	ifstream ifs(fileName);
 	Dictionary dictionary;
 
-	//при ошибке чтения...
 	if (ifs.is_open())
 	{
 		string word;
