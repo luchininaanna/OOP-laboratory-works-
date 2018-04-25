@@ -20,9 +20,8 @@ Dictionary GetDictionary(char* fileName)
 	{
 		string word;
 		string translation;
-		while (!ifs.eof())
+		while (getline(ifs, word, ' '))
 		{
-			getline(ifs, word, ' ');
 			getline(ifs, translation);
 			dictionary.emplace(word, translation);
 		}
