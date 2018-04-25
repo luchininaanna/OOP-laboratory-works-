@@ -32,12 +32,14 @@ bool CTVSet::SelectChannel(int channel)
 	return false;
 }
 
-bool CTVSet::SetChannelName(int chanel, std::string channelName)
+bool CTVSet::SetChannelName(int channel, std::string channelName)
 {
+	bool isAvailableChannel = (channel >= 1) && (channel <= 99);
 	bool isCorrectChanelName = CheckChanelName(channelName);
 
-	if (isCorrectChanelName) {
+	if (isCorrectChanelName && isAvailableChannel) {
 		//задаем имя для канала
+		//?как заменить int на string
 		return true;
 	}
 
