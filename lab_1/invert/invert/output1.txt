@@ -1,1 +1,1 @@
-This matrix does not have an invert matrix: the determinant is zero
+File is  not open

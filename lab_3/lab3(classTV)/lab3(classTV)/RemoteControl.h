@@ -1,20 +1,20 @@
 #pragma once
-#include <boost/noncopyable.hpp>
 
 class CTVSet;
 
-// Наследование от boost::noncopyable - явный способ запретить копирование и присваивание экземпляров класса
-class CRemoteControl : boost::noncopyable
+class CRemoteControl
 {
 public:
 	CRemoteControl(CTVSet & tv, std::istream & input, std::ostream & output);
 	bool HandleCommand();
 
-	// Избавляемся от предупреждения компилятора о том, что он не сможет сгенерировать оператор присваивания
+	
 	// CRemoteControl& operator=(const CRemoteControl &) = delete;
 private:
 	bool TurnOn(std::istream & args);
 	bool TurnOff(std::istream & args);
+	bool SelectChannel(std::istream& args);
+	bool SelectPreviousChannel(std::istream& args);
 	bool Info(std::istream & args);
 private:
 	typedef std::map<std::string, std::function<bool(std::istream & args)>> ActionMap;

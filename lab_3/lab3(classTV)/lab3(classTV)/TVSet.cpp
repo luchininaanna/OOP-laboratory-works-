@@ -1,5 +1,9 @@
 #include "stdafx.h"
 #include "TVSet.h"
+#include "string"
+
+using namespace std;
+
 
 bool CTVSet::IsTurnedOn()const
 {
@@ -24,50 +28,37 @@ int CTVSet::GetChannel()const
 bool CTVSet::SelectChannel(int channel)
 {
 	bool isAvailableChannel = (channel >= 1) && (channel <= 99);
+
 	if (isAvailableChannel && m_isOn)
 	{
+		m_previousChannel = m_selectedChannel;
 		m_selectedChannel = channel;
 		return true;
 	}
+
 	return false;
 }
 
-bool CTVSet::SetChannelName(int channel, std::string channelName)
+bool CTVSet::SelectPreviousChannel()
 {
-	bool isAvailableChannel = (channel >= 1) && (channel <= 99);
-	bool isCorrectChanelName = CheckChanelName(channelName);
-
-	if (isCorrectChanelName && isAvailableChannel) {
-		//задаем имя для канала
-		//?как заменить int на string
+	if (m_isOn)
+	{
+		swap(m_previousChannel, m_selectedChannel);
 		return true;
 	}
 
 	return false;
 }
 
-bool CTVSet::SearchSymbolInSting(std::string channelName) {
-
-	int channelNameLength = channelName.length();
-
-	for (int i = 0; i < channelNameLength; i++) {
-		if (channelName[i] != ' ') {
-			return true;
-		}
+void CTVSet::Info()const
+{
+	if (IsTurnedOn())
+	{
+		cout << "The TV is turned off" << endl;
+		cout << "Current channel is " << GetChannel() << endl;
 	}
-
-	return false;
-}
-
-bool CTVSet::CheckChanelName(std::string channelName) {
-
-	bool isEmptyString = (channelName != "");
-
-	bool isChannelNameConsistOfSymbol = SearchSymbolInSting(channelName);
-
-	if (isEmptyString && isChannelNameConsistOfSymbol) {
-		return true;
+	else
+	{
+		cout << "The TV is turned on" << endl;
 	}
-
-	return false;
 }

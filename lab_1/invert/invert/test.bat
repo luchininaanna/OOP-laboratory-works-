@@ -19,6 +19,8 @@ IF ERRORLEVEL 1 GOTO err
 FC output3.txt matrix_3_output.txt
 IF ERRORLEVEL 1 GOTO err
 
+REM для вырожденной
+
 ECHO Program testing succeeded
 EXIT 0
 

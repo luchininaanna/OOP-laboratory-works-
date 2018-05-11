@@ -1,6 +1,5 @@
 #include "stdafx.h"
-#include "string"
-#include "../lab3(classTV)/TVSet.h"
+#include "../lab3(classTV)Tests/TVSet.h"
 
 /*
 “елевизор
@@ -19,7 +18,6 @@ BOOST_AUTO_TEST_CASE(is_turned_off_by_default)
 {
 	BOOST_CHECK(!tv.IsTurnedOn());
 }
-
 // не может переключать канал в выключенном состо€нии
 BOOST_AUTO_TEST_CASE(cant_select_channel_when_turned_off)
 {
@@ -27,6 +25,12 @@ BOOST_AUTO_TEST_CASE(cant_select_channel_when_turned_off)
 	BOOST_CHECK_EQUAL(tv.GetChannel(), 0);
 }
 
+//не может выернутьс€ на предыдущий канал 
+BOOST_AUTO_TEST_CASE(cant_select_previous_channel_when_turned_off)
+{
+	BOOST_CHECK(!tv.SelectPreviousChannel());
+	BOOST_CHECK_EQUAL(tv.GetChannel(), 0);
+}
 // может быть включен
 BOOST_AUTO_TEST_CASE(can_be_turned_on)
 {
@@ -46,19 +50,29 @@ struct when_turned_on_ : TVSetFixture
 		tv.TurnOn();
 	}
 };
+
 // после включени€
-BOOST_FIXTURE_TEST_SUITE(when_turned_on_, when_turned_on_)
+BOOST_FIXTURE_TEST_SUITE(when_turned_on, when_turned_on_)
+
 // отображает канал 1
 BOOST_AUTO_TEST_CASE(displays_channel_one)
 {
 	BOOST_CHECK_EQUAL(tv.GetChannel(), 1);
 }
+
 // можно выключить
 BOOST_AUTO_TEST_CASE(can_be_turned_off)
 {
 	tv.TurnOff();
 	BOOST_CHECK(!tv.IsTurnedOn());
 }
+
+BOOST_AUTO_TEST_CASE(dont_select_previous_channel_if_first_turn_on)
+{
+	BOOST_CHECK(tv.SelectPreviousChannel());
+	BOOST_CHECK_EQUAL(tv.GetChannel(), 1);
+}
+
 // позвол€ет выбрать канал от 1 до 99
 BOOST_AUTO_TEST_CASE(can_select_channel_from_1_to_99)
 {
@@ -80,13 +94,29 @@ BOOST_AUTO_TEST_CASE(can_select_channel_from_1_to_99)
 	BOOST_CHECK(!tv.SelectChannel(100));
 	BOOST_CHECK_EQUAL(tv.GetChannel(), 42);
 }
+
+//позвол€ет выбрать предыдущий канал
+BOOST_AUTO_TEST_CASE(can_select_previous_channel)
+{
+	//выбрали сначала 50 канал,а затем 90
+	tv.SelectChannel(50);
+	BOOST_CHECK_EQUAL(tv.GetChannel(), 50);
+	tv.SelectChannel(90);
+	BOOST_CHECK_EQUAL(tv.GetChannel(), 90);
+
+	//возвращаемс€ на предыдущий канал
+	BOOST_CHECK(tv.SelectPreviousChannel());
+	BOOST_CHECK_EQUAL(tv.GetChannel(), 50);
+}
+
+
 BOOST_AUTO_TEST_SUITE_END()
 
 struct after_subsequent_turning_on_ : when_turned_on_
 {
 	after_subsequent_turning_on_()
 	{
-		tv.SelectChannel(33);
+		tv.SelectChannel(35);
 		tv.TurnOff();
 		tv.TurnOn();
 	}
@@ -94,12 +124,26 @@ struct after_subsequent_turning_on_ : when_turned_on_
 
 // после повторного включени€
 BOOST_FIXTURE_TEST_SUITE(after_subsequent_turning_on, after_subsequent_turning_on_)
+
 // восстанавливает последний выбранный канал
 BOOST_AUTO_TEST_CASE(restores_last_selected_channel)
 {
-	BOOST_CHECK_EQUAL(tv.GetChannel(), 33);
+	BOOST_CHECK_EQUAL(tv.GetChannel(), 35);
 }
+
+BOOST_AUTO_TEST_CASE(restores_previous_selected_channel)
+{
+	//выбрали сначала 50 канал,а затем хотим вернутьс€ на 33, который был до выключени€
+	tv.SelectChannel(50);
+
+	//возвращаемс€ на предыдущий канал
+	BOOST_CHECK(tv.SelectPreviousChannel());
+	BOOST_CHECK_EQUAL(tv.GetChannel(), 35);
+}
+
 BOOST_AUTO_TEST_SUITE_END()
+
+
 
 // Ќапишите тесты дл€ недостающего функционала класса CTVSet (если нужно)
 //	и дл€ дополнительных заданий на бонусные баллы (если нужно)
@@ -109,21 +153,5 @@ BOOST_AUTO_TEST_SUITE_END()
 // ѕри необходимости используйте вложенные тесты (как использующие fixture, так и нет)
 // »мена тестам и test suite-ам давайте такие, чтобы выводима€ в output иерархи€
 //	тестов читалась как спецификаци€ на английском €зыке, описывающа€ поведение телевизора
-
-
-//позвол€ет выбрать предыдущий канал
-BOOST_AUTO_TEST_CASE(can_select_previous_channel)
-{
-	//выбрали сначала 12 канал,а затем 75
-	tv.SelectChannel(12);
-	BOOST_CHECK_EQUAL(tv.GetChannel(), 12);
-	tv.SelectChannel(75);
-	BOOST_CHECK_EQUAL(tv.GetChannel(), 75);
-
-	//возвращаемс€ на предыдущий канал
-	BOOST_CHECK(tv.SelectPreviousChannel());
-	BOOST_CHECK_EQUAL(tv.GetChannel(), 12);
-}
-
 
 BOOST_AUTO_TEST_SUITE_END()
