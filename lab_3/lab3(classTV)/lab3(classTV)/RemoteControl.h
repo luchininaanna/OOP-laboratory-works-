@@ -9,7 +9,7 @@ public:
 	bool HandleCommand();
 
 	
-	// CRemoteControl& operator=(const CRemoteControl &) = delete;
+    //CRemoteControl& operator=(const CRemoteControl &) = delete;
 private:
 	bool TurnOn(std::istream & args);
 	bool TurnOff(std::istream & args);
