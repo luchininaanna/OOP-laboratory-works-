@@ -30,6 +30,7 @@ CLineSegment::CLineSegment()
 {
 }
 
+
 CLineSegment::CLineSegment(CPoint const & startPoint, CPoint const & endPoint)
 	:m_startPoint(startPoint), m_endPoint(endPoint)
 {}

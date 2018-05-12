@@ -11,28 +11,3 @@ CShape::CShape()
 CShape::~CShape()
 {
 }
-
-/*
-double CShape::GetArea()
-{
-
-}
-
-
-double CShape::GetPerimeter()
-{
-
-}
-
-
-string CShape::ToString()
-{
-
-}
-
-
-string CShape::GetOutlineColor()
-{
-
-}
-*/
