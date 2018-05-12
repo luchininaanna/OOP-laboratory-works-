@@ -2,8 +2,16 @@
 #include "Point.h"
 
 
+CPoint::CPoint(double x, double y)
+{
+	m_x = x;
+	m_y = y;
+}
+
+
 CPoint::CPoint()
 {
+
 }
 
 

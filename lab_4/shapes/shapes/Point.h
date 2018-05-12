@@ -3,7 +3,8 @@ class CPoint
 {
 public:
 	CPoint();
-	//CPoint(double x, double y);
+	CPoint(double x, double y);
+
 	double GetX() const;
 	double GetY() const;
 	~CPoint();
