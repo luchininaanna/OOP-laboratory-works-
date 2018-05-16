@@ -32,10 +32,10 @@ private:
 	{
 		bool isCorrectName = true;
 
-		int nameLength = name.length();
+		size_t nameLength = name.length();
 		int amountSpaces = 0;
 
-		for (int i = 0; i < nameLength; i++)
+		for (size_t i = 0; i < nameLength; i++)
 		{
 			if (name[i] == ' ')
 			{
@@ -54,17 +54,17 @@ private:
 	std::string m_GetChannelNameWithoutExtraSpaces(const std::string & name)
 	{
 		std::string channelNameWithoutExtraSpaces = "";
-		int nameLength = name.length();
+		size_t nameLength = name.length();
 
 		//определение номера последнего значимого символа в имени
-		int lastSymbolNumber = nameLength - 1;
+		size_t lastSymbolNumber = nameLength - 1;
 		while (name[lastSymbolNumber] == ' ')
 		{
 			lastSymbolNumber--;
 		}
 
 		//пропуск пробелов в начале имени
-		int i = 0;
+		size_t i = 0;
 		while (name[i] == ' ')
 		{
 			i++;
