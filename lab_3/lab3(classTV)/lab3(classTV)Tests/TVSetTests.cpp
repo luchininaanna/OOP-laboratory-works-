@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "../lab3(classTV)Tests/TVSet.h"
 
+
 /*
 Телевизор
 изначально выключен
@@ -110,6 +111,20 @@ BOOST_AUTO_TEST_CASE(can_select_previous_channel)
 }
 
 
+BOOST_AUTO_TEST_CASE(can_set_channel_name_)
+{
+	BOOST_CHECK(tv.SetChannelName(10, "   russian    extreme   "));
+
+	BOOST_CHECK(tv.SelectChannel("russian extreme"));
+
+	BOOST_CHECK_EQUAL(tv.GetChannelByName("russian extreme"), 10);
+	BOOST_CHECK_EQUAL(tv.GetChannelName(10), "russian extreme");
+
+	tv.DeleteChannelName("russian extreme");
+
+	BOOST_CHECK_EQUAL(tv.GetChannelByName("russian extreme"), 0);
+}
+
 BOOST_AUTO_TEST_SUITE_END()
 
 struct after_subsequent_turning_on_ : when_turned_on_
@@ -143,6 +158,10 @@ BOOST_AUTO_TEST_CASE(restores_previous_selected_channel)
 
 BOOST_AUTO_TEST_SUITE_END()
 
+// после повторного включения
+BOOST_FIXTURE_TEST_SUITE(set_name_for_channel, after_subsequent_turning_on_)
+
+BOOST_AUTO_TEST_SUITE_END()
 
 
 // Напишите тесты для недостающего функционала класса CTVSet (если нужно)

@@ -2,22 +2,16 @@
 #include "stdafx.h"
 #include "vector"
 
-using namespace std;
-
-
 class CTVSet
 {
 
 public:
-	//struct Channel;
-
 	bool IsTurnedOn()const; // часть Info
 	void TurnOn();
 	void TurnOff();
 	int GetChannel()const; // часть Info
 	bool SelectChannel(int channel);
 	bool SelectPreviousChannel();
-
 	void Info()const;
 
 private:
@@ -26,5 +20,5 @@ private:
 	int m_previousChannel = 1;
 
 
-	//map <string, int> m_channels;
+	std::map <std::string, int> m_channels;
 };
