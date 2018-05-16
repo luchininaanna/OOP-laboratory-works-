@@ -4,10 +4,8 @@
 using namespace std;
 
 CShape::CShape()
-{
-}
+{}
 
 
 CShape::~CShape()
-{
-}
+{}

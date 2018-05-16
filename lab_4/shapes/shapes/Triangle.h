@@ -7,8 +7,8 @@ class CTriangle : public CSolidShape
 public:
 	double GetArea() const override;
 	double GetPerimeter() const override;
-	string ToString() const override;
-	string GetOutlineColor() const override;
+	std::string ToString() const override;
+	std::string GetOutlineColor() const override;
 
 	CTriangle(CPoint const & p1, CPoint const & p2, CPoint const & p3);
 	CPoint GetVertex1() const;

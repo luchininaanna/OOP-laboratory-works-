@@ -107,6 +107,11 @@ void CTVSet::Info()const
 	{
 		cout << "The TV is turned off" << endl;
 		cout << "Current channel is " << GetChannel() << endl;
+
+		for (auto channelsEntry : m_channels)
+		{
+			cout << channelsEntry.first << " " << channelsEntry.second << endl;
+		}
 	}
 	else 
 	{

@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include "LineSegment.h"
+#include <string>
 
 
 double CLineSegment::GetArea() const
@@ -14,13 +15,13 @@ double CLineSegment::GetPerimeter() const
 }
 
 
-string CLineSegment::ToString() const
+std::string CLineSegment::ToString() const
 {
 	return "";
 }
 
 
-string CLineSegment::GetOutlineColor() const
+std::string CLineSegment::GetOutlineColor() const
 {
 	return "";
 }

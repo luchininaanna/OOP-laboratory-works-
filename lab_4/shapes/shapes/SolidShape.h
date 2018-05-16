@@ -5,10 +5,10 @@ class CSolidShape : public CShape
 {
 public:
 	CSolidShape();
-	string GetFillColor() const;
+	std::string GetFillColor() const;
 	~CSolidShape();
 
 private:
-	string m_fillColor;
+	std::string m_fillColor;
 };
 

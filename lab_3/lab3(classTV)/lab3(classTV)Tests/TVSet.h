@@ -5,7 +5,6 @@
 class CTVSet
 {
 public:
-
 	bool IsTurnedOn()const; // часть Info
 	void TurnOn(); 
 	void TurnOff();

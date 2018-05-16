@@ -7,7 +7,7 @@ CSolidShape::CSolidShape()
 }
 
 
-string CSolidShape::GetFillColor() const
+std::string CSolidShape::GetFillColor() const
 {
 	return m_fillColor;
 }

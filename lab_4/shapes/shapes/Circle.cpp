@@ -14,13 +14,13 @@ double CCircle::GetPerimeter() const
 }
 
 
-string CCircle::ToString() const
+std::string CCircle::ToString() const
 {
 	return "";
 }
 
 
-string CCircle::GetOutlineColor() const
+std::string CCircle::GetOutlineColor() const
 {
 	return "";
 }

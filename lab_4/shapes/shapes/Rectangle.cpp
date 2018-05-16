@@ -14,13 +14,13 @@ double CRectangle::GetPerimeter() const
 }
 
 
-string CRectangle::ToString() const
+std::string CRectangle::ToString() const
 {
 	return "";
 }
 
 
-string CRectangle::GetOutlineColor() const
+std::string CRectangle::GetOutlineColor() const
 {
 	return "";
 }
