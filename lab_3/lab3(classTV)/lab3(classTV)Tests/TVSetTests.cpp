@@ -1,5 +1,5 @@
 #include "stdafx.h"
-#include "../lab3(classTV)Tests/TVSet.h"
+#include "../lab3(classTV)/TVSet.h"
 
 
 /*
@@ -110,19 +110,67 @@ BOOST_AUTO_TEST_CASE(can_select_previous_channel)
 	BOOST_CHECK_EQUAL(tv.GetChannel(), 50);
 }
 
-
+//проверяем возможность становить имя для канала
 BOOST_AUTO_TEST_CASE(can_set_channel_name_)
+{
+	BOOST_CHECK(tv.SetChannelName(10, "   russian    extreme   "));
+}
+
+//пробуем получить номер канала по имени
+BOOST_AUTO_TEST_CASE(can_get_channel_by_name_)
 {
 	BOOST_CHECK(tv.SetChannelName(10, "   russian    extreme   "));
 
 	BOOST_CHECK(tv.SelectChannel("russian extreme"));
 
 	BOOST_CHECK_EQUAL(tv.GetChannelByName("russian extreme"), 10);
+}
+
+//пробуем получить имя канала по номеру
+BOOST_AUTO_TEST_CASE(can_get_channel_name_by_channel_)
+{
+	BOOST_CHECK(tv.SetChannelName(10, "   russian    extreme   "));
+
+	BOOST_CHECK(tv.SelectChannel("russian extreme"));
+
 	BOOST_CHECK_EQUAL(tv.GetChannelName(10), "russian extreme");
+
+}
+
+//пробуем получить информацию по удаленному каналу
+BOOST_AUTO_TEST_CASE(can_not_get_channel_when_channel_name_was_deleted_)
+{
+	BOOST_CHECK(tv.SetChannelName(10, "   russian    extreme   "));
+
+	BOOST_CHECK(tv.SelectChannel("russian extreme"));
 
 	tv.DeleteChannelName("russian extreme");
 
 	BOOST_CHECK_EQUAL(tv.GetChannelByName("russian extreme"), 0);
+}
+
+//пробуем получить информацию для выключенного телевизора (номер канала по имени)
+BOOST_AUTO_TEST_CASE(can_not_get_channel_when_TVSet_was_turned_off_)
+{
+	BOOST_CHECK(tv.SetChannelName(10, "   russian    extreme   "));
+
+	BOOST_CHECK(tv.SelectChannel("russian extreme"));
+
+	tv.TurnOff();
+
+	BOOST_CHECK_EQUAL(tv.GetChannelByName("russian extreme"), 0);
+}
+
+//пробуем получить информацию для выключенного телевизора (имя канала по номеру)
+BOOST_AUTO_TEST_CASE(can_not_delete_channel_name_when_TVSet_was_turned_off_)
+{
+	BOOST_CHECK(tv.SetChannelName(10, "   russian    extreme   "));
+
+	BOOST_CHECK(tv.SelectChannel("russian extreme"));
+
+	tv.TurnOff();
+
+	BOOST_CHECK_EQUAL(tv.GetChannelName(10), "");
 }
 
 BOOST_AUTO_TEST_SUITE_END()
