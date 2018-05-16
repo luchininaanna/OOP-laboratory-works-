@@ -20,5 +20,7 @@ public:
 private:
 	CPoint m_center;
 	double m_radius;
+
+	double m_Pi = 3.14;
 };
 

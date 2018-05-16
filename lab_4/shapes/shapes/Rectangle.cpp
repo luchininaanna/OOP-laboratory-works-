@@ -4,13 +4,13 @@
 
 double CRectangle::GetArea() const
 {
-	return 0;
+	return m_width * m_height;
 }
 
 
 double CRectangle::GetPerimeter() const
 {
-	return 0;
+	return 2 * (m_width + m_height);
 }
 
 
@@ -30,9 +30,11 @@ CRectangle::CRectangle()
 {
 }
 
+
 CRectangle::CRectangle(CPoint const & leftTop, CPoint const & rightBottom)
 	: m_leftTop(leftTop), m_rightBottom(rightBottom)
 {}
+
 
 CPoint CRectangle::GetLeftTop() const
 {

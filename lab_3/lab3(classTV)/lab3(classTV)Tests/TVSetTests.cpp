@@ -110,7 +110,7 @@ BOOST_AUTO_TEST_CASE(can_select_previous_channel)
 	BOOST_CHECK_EQUAL(tv.GetChannel(), 50);
 }
 
-//проверяем возможность становить имя для канала
+//проверяем возможность установить имя для канала
 BOOST_AUTO_TEST_CASE(can_set_channel_name_)
 {
 	BOOST_CHECK(tv.SetChannelName(10, "   russian    extreme   "));
@@ -171,6 +171,22 @@ BOOST_AUTO_TEST_CASE(can_not_delete_channel_name_when_TVSet_was_turned_off_)
 	tv.TurnOff();
 
 	BOOST_CHECK_EQUAL(tv.GetChannelName(10), "");
+}
+
+//проверяем возможность переустановить имя для канала
+BOOST_AUTO_TEST_CASE(can_reset_channel_name_)
+{
+	BOOST_CHECK(tv.SetChannelName(10, "   russian    extreme   "));
+	BOOST_CHECK(tv.SetChannelName(10, "   russian   "));
+}
+
+//проверяем возможность обратиться к каналу по переустановленному уровню
+BOOST_AUTO_TEST_CASE(can_get_channel_by_reset_name_)
+{
+	BOOST_CHECK(tv.SetChannelName(10, "   russian    extreme   "));
+	BOOST_CHECK(tv.SetChannelName(10, "   russian   "));
+
+	BOOST_CHECK_EQUAL(tv.GetChannelName(10), "russian");
 }
 
 BOOST_AUTO_TEST_SUITE_END()

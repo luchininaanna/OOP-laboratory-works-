@@ -129,6 +129,13 @@ bool CTVSet::SetChannelName(int channelNumber, string channelName)
 
 		channelNameWithoutExtraSpaces = m_GetChannelNameWithoutExtraSpaces(channelName);
 
+		string currentChannelName = this->GetChannelName(channelNumber);
+
+		if (currentChannelName != "")
+		{
+			m_channels.erase(currentChannelName);
+		}
+
 		m_channels.emplace(channelNameWithoutExtraSpaces, channelNumber);
 
 		return true;

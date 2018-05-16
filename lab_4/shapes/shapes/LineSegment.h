@@ -2,7 +2,7 @@
 #include "Shape.h"
 #include "Point.h"
 
-class CLineSegment
+class CLineSegment : virtual CShape
 {
 public:
 	double GetArea() const override;

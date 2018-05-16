@@ -4,13 +4,13 @@
 
 double CCircle::GetArea() const
 {
-	return 0;
+	return m_Pi * m_radius * m_radius;
 }
 
 
 double CCircle::GetPerimeter() const
 {
-	return 0;
+	return 2 * m_Pi * m_radius;
 }
 
 
