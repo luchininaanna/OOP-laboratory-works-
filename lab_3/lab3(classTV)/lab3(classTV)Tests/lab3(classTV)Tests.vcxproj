@@ -157,6 +157,7 @@
     <ClInclude Include="TVSet.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\lab3(classTV)\TVSet.cpp" />
     <ClCompile Include="lab3(classTV)Tests.cpp" />
     <ClCompile Include="RemoteControl.cpp" />
     <ClCompile Include="RemoteControlTests.cpp" />
@@ -166,7 +167,6 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="TVSet.cpp" />
     <ClCompile Include="TVSetTests.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

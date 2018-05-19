@@ -18,7 +18,6 @@ public:
 	double GetWidth();
 	double GetHeight();
 
-	~CRectangle();
 
 private:
 	CPoint m_leftTop, m_rightBottom;

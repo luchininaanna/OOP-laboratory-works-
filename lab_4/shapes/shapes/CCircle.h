@@ -16,7 +16,6 @@ public:
 
 	CPoint GetCenter() const;
 	double GetRadius();
-	~CCircle();
 
 private:
 	CPoint m_center;

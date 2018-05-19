@@ -16,8 +16,6 @@ public:
 	CPoint GetVertex2() const;
 	CPoint GetVertex3() const;
 
-	~CTriangle();
-
 private:
 	double m_GetSideLength(CPoint const & p1, CPoint const & p2) const
 	{

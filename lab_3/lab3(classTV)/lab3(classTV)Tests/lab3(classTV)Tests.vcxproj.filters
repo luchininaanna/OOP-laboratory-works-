@@ -41,10 +41,10 @@
     <ClCompile Include="RemoteControlTests.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="TVSet.cpp">
+    <ClCompile Include="TVSetTests.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="TVSetTests.cpp">
+    <ClCompile Include="..\lab3(classTV)\TVSet.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

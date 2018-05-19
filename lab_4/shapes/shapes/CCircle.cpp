@@ -46,8 +46,3 @@ double CCircle::GetRadius()
 {
 	return m_radius;
 }
-
-
-CCircle::~CCircle()
-{
-}
