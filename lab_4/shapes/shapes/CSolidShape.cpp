@@ -1,12 +1,12 @@
 #include "stdafx.h"
 #include "CSolidShape.h"
 
-
-SolidShape::SolidShape()
+std::string CSolidShape::GetFillColor() const
 {
+	return m_fillColor;
 }
 
-
-SolidShape::~SolidShape()
+void CSolidShape::SetFillColor(const std::string & color)
 {
+	m_fillColor = color;
 }

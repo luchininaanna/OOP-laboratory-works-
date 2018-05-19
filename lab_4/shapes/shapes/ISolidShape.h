@@ -1,19 +1,10 @@
 #pragma once
-#include "Shape.h"
+#include <string>
+#include "CShape.h"
 
-class CSolidShape : public CShape
+
+class ISolidShape : virtual public IShape
 {
 public:
-	double GetArea() const override;
-	double GetPerimeter() const override;
-	std::string ToString() const override;
-	std::string GetOutlineColor() const override;
-
-	CSolidShape();
-	std::string GetFillColor() const;
-	~CSolidShape();
-
-private:
-	std::string m_fillColor;
+	virtual std::string GetFillColor() const = 0;
 };
-

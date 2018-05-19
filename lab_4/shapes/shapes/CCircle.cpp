@@ -1,5 +1,7 @@
 #include "stdafx.h"
-#include "Circle.h"
+#include "CCircle.h"
+
+#include <string>
 
 
 double CCircle::GetArea() const
@@ -20,20 +22,18 @@ std::string CCircle::ToString() const
 }
 
 
-std::string CCircle::GetOutlineColor() const
-{
-	return "";
-}
-
-
 CCircle::CCircle()
 {
 }
 
 
-CCircle::CCircle(CPoint const & center, double radius)
+CCircle::CCircle(CPoint const & center, double radius, 
+	const std::string & fillColor, const std::string& outlineColor)
 	: m_center(center), m_radius(radius)
-{}
+{
+	SetFillColor(fillColor);
+	SetOutlineColor(outlineColor);
+}
 
 
 CPoint CCircle::GetCenter() const

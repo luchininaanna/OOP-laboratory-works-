@@ -1,5 +1,5 @@
 #include "stdafx.h"
-#include "LineSegment.h"
+#include "CLineSegment.h"
 #include <string>
 
 
@@ -11,17 +11,12 @@ double CLineSegment::GetArea() const
 
 double CLineSegment::GetPerimeter() const
 {
-	return 0;
+	return sqrt(pow((m_endPoint.GetX - m_startPoint.GetX), 2)
+		+ pow((m_endPoint.GetY - m_startPoint.GetY), 2));
 }
 
 
 std::string CLineSegment::ToString() const
-{
-	return "";
-}
-
-
-std::string CLineSegment::GetOutlineColor() const
 {
 	return "";
 }
@@ -32,9 +27,11 @@ CLineSegment::CLineSegment()
 }
 
 
-CLineSegment::CLineSegment(CPoint const & startPoint, CPoint const & endPoint)
+CLineSegment::CLineSegment(CPoint const & startPoint, CPoint const & endPoint, const std::string& color)
 	:m_startPoint(startPoint), m_endPoint(endPoint)
-{}
+{
+	SetOutlineColor(color);
+}
 
 
 CPoint CLineSegment::GetStartPoint() const

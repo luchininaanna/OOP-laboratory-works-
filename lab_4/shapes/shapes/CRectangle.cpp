@@ -1,5 +1,5 @@
 #include "stdafx.h"
-#include "Rectangle.h"
+#include "CRectangle.h"
 
 
 double CRectangle::GetArea() const
@@ -20,20 +20,18 @@ std::string CRectangle::ToString() const
 }
 
 
-std::string CRectangle::GetOutlineColor() const
-{
-	return "";
-}
-
-
 CRectangle::CRectangle()
 {
 }
 
 
-CRectangle::CRectangle(CPoint const & leftTop, CPoint const & rightBottom)
+CRectangle::CRectangle(CPoint const & leftTop, CPoint const & rightBottom,
+	const std::string & fillColor, const std::string& outlineColor)
 	: m_leftTop(leftTop), m_rightBottom(rightBottom)
-{}
+{
+	SetFillColor(fillColor);
+	SetOutlineColor(outlineColor);
+}
 
 
 CPoint CRectangle::GetLeftTop() const

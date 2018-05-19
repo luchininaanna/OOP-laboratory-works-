@@ -7,6 +7,7 @@ public:
 
 	double GetX() const;
 	double GetY() const;
+
 	~CPoint();
 
 private:
