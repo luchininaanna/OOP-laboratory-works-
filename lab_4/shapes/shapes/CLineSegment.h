@@ -14,8 +14,6 @@ public:
 	CPoint GetStartPoint() const;
 	CPoint GetEndPoint() const;
 
-	~CLineSegment();
-
 protected:
 	void ShowProperties(std::ostream & strm) const override;
 

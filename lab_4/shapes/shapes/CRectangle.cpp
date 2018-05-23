@@ -15,8 +15,7 @@ double CRectangle::GetPerimeter() const
 
 
 CRectangle::CRectangle()
-{
-}
+{}
 
 
 CRectangle::CRectangle(CPoint leftTop, double width, double height, 
