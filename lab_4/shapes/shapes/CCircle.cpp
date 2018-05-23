@@ -16,9 +16,16 @@ double CCircle::GetPerimeter() const
 }
 
 
-std::string CCircle::ToString() const
+void CCircle::ShowProperties(std::ostream & strm) const
 {
-	return "";
+	std::string figureInfo = "Shape Type : Circle\n";
+
+	figureInfo += "Center: " + m_center.ToString()
+		+ "\nRadius: " + std::to_string(m_radius)
+		+ "\nPerimeter: " + std::to_string(GetPerimeter())
+		+ "\nArea: " + std::to_string(GetArea());
+
+	strm << figureInfo << std::endl;
 }
 
 

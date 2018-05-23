@@ -30,3 +30,11 @@ double CPoint::GetY() const
 CPoint::~CPoint()
 {
 }
+
+
+std::string CPoint::ToString() const
+{
+	std::string pointInfo;
+	pointInfo = "[" + std::to_string(GetX()) + ", " + std::to_string(GetY()) + "]";
+	return pointInfo;
+}

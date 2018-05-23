@@ -25,9 +25,17 @@ double CTriangle::GetPerimeter() const
 }
 
 
-string CTriangle::ToString() const
+void CTriangle::ShowProperties(std::ostream & strm) const
 {
-	return "";
+	std::string figureInfo = "Shape Type : Triangle\n";
+
+	figureInfo += "Vertex1: " + GetVertex1().ToString()
+		+ "\nVertex2: " + GetVertex2().ToString()
+		+ "\nVertex3: " + GetVertex3().ToString()
+		+ "\nPerimeter: " + std::to_string(GetPerimeter())
+		+ "\nArea: " + std::to_string(GetArea());
+
+	strm << figureInfo << std::endl;
 }
 
 

@@ -10,12 +10,15 @@ public:
 
 	virtual double GetArea()const override;
 	virtual double GetPerimeter()const override;
-	virtual std::string ToString()const override;
 
 	CPoint GetStartPoint() const;
 	CPoint GetEndPoint() const;
 
 	~CLineSegment();
+
+protected:
+	void ShowProperties(std::ostream & strm) const override;
+
 private:
 	CPoint m_startPoint , m_endPoint;
 };

@@ -10,3 +10,15 @@ void CSolidShape::SetFillColor(const std::string & color)
 {
 	m_fillColor = color;
 }
+
+std::string CSolidShape::ToString() const
+{
+	std::ostringstream strm;
+
+	strm << "\nOutlineColor: " + GetOutlineColor()
+		+ "\nFillColor: " + GetFillColor() << std::endl;
+
+	ShowProperties(strm);
+
+	return strm.str();
+}

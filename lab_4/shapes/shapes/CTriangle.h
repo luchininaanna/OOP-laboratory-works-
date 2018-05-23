@@ -10,11 +10,13 @@ public:
 
 	virtual double GetArea() const override;
 	virtual double GetPerimeter() const override;
-	virtual std::string ToString() const override;
 
 	CPoint GetVertex1() const;
 	CPoint GetVertex2() const;
 	CPoint GetVertex3() const;
+	
+protected:
+	void ShowProperties(std::ostream & strm) const override;
 
 private:
 	double m_GetSideLength(CPoint const & p1, CPoint const & p2) const
@@ -22,6 +24,5 @@ private:
 		return sqrt(pow((p1.GetX() - p2.GetX()), 2)
 			+ pow((p1.GetY() - p2.GetY()), 2));
 	}
-
 	CPoint m_vertex1, m_vertex2, m_vertex3;
 };

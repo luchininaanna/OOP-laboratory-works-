@@ -16,9 +16,16 @@ double CLineSegment::GetPerimeter() const
 }
 
 
-std::string CLineSegment::ToString() const
+void CLineSegment::ShowProperties(std::ostream & strm) const
 {
-	return "";
+	std::string figureInfo = "Shape Type : Line\n";
+
+	figureInfo += "StartPoint: " + m_startPoint.ToString()
+		+ "\nEndPoint: " + m_endPoint.ToString()
+		+ "\nPerimeter: " + std::to_string(GetPerimeter())
+		+ "\nArea: " + std::to_string(GetArea());
+
+	strm << figureInfo << std::endl;
 }
 
 
