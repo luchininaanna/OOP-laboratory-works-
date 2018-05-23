@@ -33,3 +33,9 @@ std::string CPoint::ToString() const
 	pointInfo = "[" + std::to_string(GetX()) + ", " + std::to_string(GetY()) + "]";
 	return pointInfo;
 }
+
+
+bool operator == (CPoint left, CPoint right)
+{
+	return (left.GetX() == right.GetX() && left.GetY() == right.GetY()) ? true : false;
+}

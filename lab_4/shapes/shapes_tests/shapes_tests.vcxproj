@@ -95,6 +95,10 @@
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
+    <PostBuildEvent>
+      <Command>
+      </Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -109,6 +113,9 @@
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
+    <PostBuildEvent>
+      <Command>"$(TargetPath)" —log_level=test_suite</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -151,10 +158,12 @@
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\shapes\CCircle.cpp" />
     <ClCompile Include="..\shapes\CLineSegment.cpp" />
     <ClCompile Include="..\shapes\CPoint.cpp" />
     <ClCompile Include="..\shapes\CRectangle.cpp" />
     <ClCompile Include="..\shapes\CShape.cpp" />
+    <ClCompile Include="..\shapes\CSolidShape.cpp" />
     <ClCompile Include="..\shapes\CTriangle.cpp" />
     <ClCompile Include="..\shapes\ProcessFiguresStream.cpp" />
     <ClCompile Include="shapes_tests.cpp" />

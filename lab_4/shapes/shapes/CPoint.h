@@ -14,10 +14,8 @@ private:
 };
 
 
-bool operator == (CPoint left, CPoint right)
-{
-return (left.GetX() == right.GetX() && left.GetY() == right.GetY()) ? true : false;
-}
+bool operator == (CPoint left, CPoint right);
+
 
 
 
