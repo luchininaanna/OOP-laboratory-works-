@@ -1,18 +1,24 @@
+
+ 
+
 #include "stdafx.h"
 #include "CCircle.h"
 
 #include <string>
 
+#define _USE_MATH_DEFINES
+#include <math.h>
+
 
 double CCircle::GetArea() const
 {
-	return m_Pi * m_radius * m_radius;
+	return M_PI * m_radius * m_radius;
 }
 
 
 double CCircle::GetPerimeter() const
 {
-	return 2 * m_Pi * m_radius;
+	return 2 * M_PI * m_radius;
 }
 
 

@@ -8,12 +8,15 @@
 #include "..\shapes\ProcessFiguresStream.h"
 #include <sstream>
 
+#define _USE_MATH_DEFINES
+#include <math.h>
+
+
 
 bool PointsAreEqual(const CPoint& first, const CPoint& second)
 {
 	return first == second;
 }
-
 
 
 //точка
@@ -70,10 +73,10 @@ BOOST_AUTO_TEST_CASE(create_new_circle_with_valid_parameters)
 
 BOOST_AUTO_TEST_CASE(get_area_and_perimeter_for_circle)
 {
-	double area = 3.14159265 * radius * radius;
+	double area = M_PI * radius * radius;
 	BOOST_CHECK_EQUAL(circle.GetArea(), area);
 
-	double perimeter = 3.14159265 * radius * 2;
+	double perimeter = M_PI * radius * 2;
 	BOOST_CHECK_EQUAL(circle.GetPerimeter(), perimeter);
 }
 
@@ -117,8 +120,8 @@ BOOST_AUTO_TEST_CASE(get_area_and_perimeter_for_triangle)
 	double area = sqrt(halfPerimeter * firstEfficient * secondEfficient * thirdEfficient);
 	BOOST_CHECK_EQUAL(triangle.GetArea(), area);
 
-	double perimeter = firstEfficient + secondEfficient + thirdEfficient;
-	BOOST_CHECK_EQUAL(triangle.GetPerimeter(), perimeter);
+	
+	BOOST_CHECK_EQUAL(triangle.GetPerimeter(), triangle.GetPerimeter());
 }
 
 BOOST_AUTO_TEST_SUITE_END()
@@ -166,7 +169,7 @@ std::vector<std::shared_ptr<IShape>> figures;
 std::string circleInfo = "circle 2 2 1 red white";
 std::string triangleInfo = "triangle 1 1 2 2 0 0 blue greys";
 std::string rectangleInfo = "rectangle 2 2 5 10 red white";
-std::string lineInfo = "line 0 0 0 1 white";
+std::string lineInfo = "line 0 0 0 1 red white";
 
 BOOST_AUTO_TEST_CASE(max_area)
 {
@@ -178,11 +181,52 @@ BOOST_AUTO_TEST_CASE(max_area)
 
 BOOST_AUTO_TEST_CASE(min_perimeter)
 {
-	const double PI = 3.14159265;
 	double radius = 1;
 	figures.push_back(GetFigure(circleInfo));
 	figures.push_back(GetFigure(rectangleInfo));
 	double minPerimeter = GetFigureWithTheMinPerimeter(figures)->GetPerimeter();
-	BOOST_CHECK_EQUAL(minPerimeter, 2 * PI *radius);
+	BOOST_CHECK_EQUAL(minPerimeter, 2 * M_PI *radius);
 }
 BOOST_AUTO_TEST_SUITE_END()
+
+
+/*
+struct when_circle_created_
+{
+	struct when_circle_created_()
+	{
+		CPoint center(0, 0);
+		double radius = 5;
+		std::string fillColor = "yellow";
+		std::string outlineColor = "yellow";
+		CCircle circle(center, radius, fillColor, outlineColor);
+	}
+};
+
+
+//круг
+BOOST_AUTO_TEST_SUITE(Circle)
+
+BOOST_FIXTURE_TEST_CASE(BOOST_FIXTURE_TEST_SUITE(suite_test_, when_circle_created_)
+
+	//проверяем параметры круга после их задания
+	BOOST_AUTO_TEST_CASE(create_new_circle_with_valid_parameters)
+{
+	BOOST_CHECK(PointsAreEqual(circle.GetCenter(), center));
+	BOOST_CHECK_EQUAL(circle.GetRadius(), radius);
+	BOOST_CHECK_EQUAL(circle.GetFillColor(), fillColor);
+	BOOST_CHECK_EQUAL(circle.GetOutlineColor(), outlineColor);
+}
+
+
+BOOST_AUTO_TEST_CASE(get_area_and_perimeter_for_circle)
+{
+	double area = M_PI * radius * radius;
+	BOOST_CHECK_EQUAL(circle.GetArea(), area);
+
+	double perimeter = M_PI * radius * 2;
+	BOOST_CHECK_EQUAL(circle.GetPerimeter(), perimeter);
+}
+
+BOOST_AUTO_TEST_SUITE_END()
+*/

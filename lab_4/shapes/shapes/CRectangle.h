@@ -9,8 +9,8 @@ public:
 	CRectangle(CPoint leftTop, double width, double height, 
 		const std::string& fillColor, const std::string& outlineColor);
 
-	virtual double GetArea() const override;
-	virtual double GetPerimeter() const override;
+	double GetArea() const override;
+	double GetPerimeter() const override;
 
 	CPoint GetLeftTop() const;
 	CPoint GetRightBottom() const;
@@ -21,6 +21,8 @@ protected:
 	void ShowProperties(std::ostream & strm) const override;
 
 private:
-	CPoint m_leftTop, m_rightBottom;
-	double m_width, m_height;
+	CPoint m_leftTop;
+	CPoint m_rightBottom;
+	double m_width;
+	double m_height;
 };

@@ -77,6 +77,31 @@ bool CRemoteControl::SelectPreviousChannel(std::istream&)
 	return true;
 }
 
+///////////
+bool CRemoteControl::SetChannelName(std::istream& args)
+{
+	int channelNumber;
+	args >> channelNumber;
+
+	std::string channelName;
+	args >> channelName;
+
+	if (!m_tv.IsTurnedOn())
+	{
+		m_output << "Can't select channel because TV is turned off\n";
+	}
+	else if (!m_tv.SelectChannel(channel))
+	{
+		m_output << "Invalid channel\n";
+	}
+	else
+	{
+		m_output << "Channel selected\n";
+	}
+
+	return true;
+}
+
 bool CRemoteControl::HandleCommand()
 {
 	std::string commandLine;

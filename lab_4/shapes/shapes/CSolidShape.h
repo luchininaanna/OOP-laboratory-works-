@@ -8,7 +8,7 @@ class CSolidShape : public CShape, public ISolidShape
 {
 public:
 	std::string GetFillColor() const override;
-	void SetFillColor(const std::string & color);
+	void SetFillColor(const std::string & color) override;
 	std::string ToString() const override;
 
 protected:

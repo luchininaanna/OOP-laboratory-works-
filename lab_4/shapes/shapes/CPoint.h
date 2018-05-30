@@ -10,7 +10,8 @@ public:
 	double GetY() const;
 
 private:
-	double m_x, m_y;
+	double m_x;
+	double m_y;
 };
 
 

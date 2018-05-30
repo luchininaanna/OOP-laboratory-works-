@@ -1,4 +1,4 @@
-#pragma once
+#pragma once  
 
 #include "CSolidShape.h"
 #include "CPoint.h"
@@ -6,8 +6,8 @@
 class CCircle : public CSolidShape
 {
 public:
-	virtual double GetArea() const override;
-	virtual double GetPerimeter() const override;
+	double GetArea() const override;
+	double GetPerimeter() const override;
 
 	CCircle();
 	CCircle(CPoint const & center, double radius, 
@@ -22,7 +22,5 @@ protected:
 private:
 	CPoint m_center;
 	double m_radius;
-
-	double m_Pi = 3.14;
 };
 

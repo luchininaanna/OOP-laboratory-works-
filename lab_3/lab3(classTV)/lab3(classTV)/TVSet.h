@@ -30,8 +30,6 @@ private:
 
 	bool m_isCorrectChannelName(std::string name)
 	{
-		bool isCorrectName = true;
-
 		size_t nameLength = name.length();
 		int amountSpaces = 0;
 
@@ -45,10 +43,10 @@ private:
 
 		if ((nameLength == amountSpaces) || (nameLength == 0))
 		{
-			isCorrectName = false;
+			return false;
 		}
 
-		return isCorrectName;
+		return true;
 	};
 
 	std::string m_GetChannelNameWithoutExtraSpaces(const std::string & name)
@@ -71,24 +69,24 @@ private:
 		}
 
 		//обработка лишних пробелов между символами
-		bool isPreviousElementIsSpace = false;
+		bool isPreviousElementSpace = false;
 		while (i <= lastSymbolNumber)
 		{
 
 			if (name[i] != ' ')
 			{
 				channelNameWithoutExtraSpaces += name[i];
-				if (isPreviousElementIsSpace)
+				if (isPreviousElementSpace)
 				{
-					isPreviousElementIsSpace = false;
+					isPreviousElementSpace = false;
 				}
 			}
 			else
 			{
-				if (!isPreviousElementIsSpace)
+				if (!isPreviousElementSpace)
 				{
 					channelNameWithoutExtraSpaces += name[i];
-					isPreviousElementIsSpace = true;
+					isPreviousElementSpace = true;
 				}
 			}
 

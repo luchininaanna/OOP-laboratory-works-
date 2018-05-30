@@ -30,7 +30,12 @@ std::shared_ptr<IShape> GetCircle(std::istream& input)
 	std::string fillColor, outlineColor;
 	input >> fillColor >> outlineColor;
 
-	return std::make_shared<CCircle>(center, radius, fillColor, outlineColor);
+	if (radius > 0)
+	{
+		return std::make_shared<CCircle>(center, radius, fillColor, outlineColor);
+	}
+
+	return nullptr;
 }
 
 std::shared_ptr<IShape> GetRectangle(std::istream& input)
@@ -45,7 +50,11 @@ std::shared_ptr<IShape> GetRectangle(std::istream& input)
 	std::string fillColor, outlineColor;
 	input >> fillColor >> outlineColor;
 
-	return std::make_shared<CRectangle>(leftTop, width, height, fillColor, outlineColor);
+	if (width > 0 && height > 0) {
+		return std::make_shared<CRectangle>(leftTop, width, height, fillColor, outlineColor);
+	}
+
+	return nullptr;
 }
 
 std::shared_ptr<IShape> GetTriangle(std::istream& input)
@@ -68,7 +77,7 @@ std::shared_ptr<IShape> GetTriangle(std::istream& input)
 }
 
 
-std::shared_ptr<IShape> GetFigure(std::string & figureWithParameters)
+std::shared_ptr<IShape> GetFigure(const std::string & figureWithParameters)
 {
 	std::stringstream input{figureWithParameters};
 	std::string figureType;
@@ -92,25 +101,16 @@ std::shared_ptr<IShape> GetFigure(std::string & figureWithParameters)
 	{
 		return GetTriangle(input);
 	}
-	
-	return nullptr;
+	else {
+		return nullptr;
+	}
 }
-
-
-//static bool AreaCompare(auto& left, auto& right)
-//{
-//	return left->GetArea() < right->GetArea();
-//}
 
 std::shared_ptr<IShape> GetFigureWithTheMaxArea(std::vector<std::shared_ptr<IShape>> & figures)
 {
 	return *max_element(figures.begin(), figures.end(), [](auto& left, auto& right) {
 		return left->GetArea() < right->GetArea();
 	});
-
-	//return *max_element(figures.begin(), figures.end(), AreaCompare) {
-	//	return std::distance(v.begin(), result);
-	//});
 }
 
 

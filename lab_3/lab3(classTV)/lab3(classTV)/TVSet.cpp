@@ -4,6 +4,7 @@
 
 using namespace std;
 
+//добавить пользовательский интерфейс для работы с каналами по их именам
 
 bool CTVSet::IsTurnedOn()const
 {
@@ -142,7 +143,7 @@ bool CTVSet::SetChannelName(int channelNumber, string channelName)
 	}
 
 	return false;
-}
+} 
 
 void CTVSet::DeleteChannelName(string channelName)
 {
