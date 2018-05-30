@@ -79,11 +79,9 @@ std::shared_ptr<IShape> GetTriangle(std::istream& input)
 
 std::shared_ptr<IShape> GetFigure(const std::string & figureWithParameters)
 {
-	std::stringstream input{figureWithParameters};
+	std::stringstream input{ figureWithParameters };
 	std::string figureType;
 	input >> figureType;
-
-	std::cout << figureType;
 
 	if (figureType == "line")
 	{
@@ -106,16 +104,27 @@ std::shared_ptr<IShape> GetFigure(const std::string & figureWithParameters)
 	}
 }
 
-std::shared_ptr<IShape> GetFigureWithTheMaxArea(std::vector<std::shared_ptr<IShape>> & figures)
+
+std::shared_ptr<IShape> GetFigureWithTheMaxArea(const std::vector<std::shared_ptr<IShape>> & figures)
 {
+	if (figures.empty())
+	{
+		return nullptr;
+	}
+
 	return *max_element(figures.begin(), figures.end(), [](auto& left, auto& right) {
 		return left->GetArea() < right->GetArea();
 	});
 }
 
 
-std::shared_ptr<IShape> GetFigureWithTheMinPerimeter(std::vector<std::shared_ptr<IShape>> & figures)
+std::shared_ptr<IShape> GetFigureWithTheMinPerimeter(const std::vector<std::shared_ptr<IShape>> & figures)
 {
+	if (figures.empty())
+	{
+		return nullptr;
+	}
+
 	return *min_element(figures.begin(), figures.end(), [](auto& left, auto& right) {
 		return left->GetPerimeter() < right->GetPerimeter();
 	});

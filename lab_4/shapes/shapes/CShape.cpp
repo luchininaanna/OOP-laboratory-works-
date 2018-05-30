@@ -17,6 +17,6 @@ std::string CShape::ToString() const
 
 	strm << +"\nOutlineColor: " << GetOutlineColor() << std::endl;
 
-	ShowProperties(strm);
+	AppendProperties(strm);
 	return strm.str();
 }

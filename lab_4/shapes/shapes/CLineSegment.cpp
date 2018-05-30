@@ -16,7 +16,7 @@ double CLineSegment::GetPerimeter() const
 }
 
 
-void CLineSegment::ShowProperties(std::ostream & strm) const
+void CLineSegment::AppendProperties(std::ostream & strm) const
 {
 	std::string figureInfo = "Shape Type : Line\n";
 

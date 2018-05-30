@@ -18,7 +18,7 @@ std::string CSolidShape::ToString() const
 	strm << "\nOutlineColor: " + GetOutlineColor()
 		+ "\nFillColor: " + GetFillColor() << std::endl;
 
-	ShowProperties(strm);
+	AppendProperties(strm);
 
 	return strm.str();
 }

@@ -15,7 +15,7 @@ public:
 	CPoint GetEndPoint() const;
 
 protected:
-	void ShowProperties(std::ostream & strm) const override;
+	void AppendProperties(std::ostream & strm) const override;
 
 private:
 	CPoint m_startPoint;

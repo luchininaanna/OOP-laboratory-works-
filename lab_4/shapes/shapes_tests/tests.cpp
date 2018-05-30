@@ -190,7 +190,7 @@ BOOST_AUTO_TEST_CASE(min_perimeter)
 BOOST_AUTO_TEST_SUITE_END()
 
 
-/*
+
 struct when_circle_created_
 {
 	struct when_circle_created_()
@@ -203,7 +203,7 @@ struct when_circle_created_
 	}
 };
 
-
+/*
 //круг
 BOOST_AUTO_TEST_SUITE(Circle)
 

@@ -12,7 +12,7 @@ public:
 	std::string ToString() const override;
 
 protected:
-	void ShowProperties(std::ostream & strm) const = 0;
+	void AppendProperties(std::ostream & strm) const = 0;
 
 private:
 	std::string m_fillColor;

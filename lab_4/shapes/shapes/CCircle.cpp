@@ -22,7 +22,7 @@ double CCircle::GetPerimeter() const
 }
 
 
-void CCircle::ShowProperties(std::ostream & strm) const
+void CCircle::AppendProperties(std::ostream & strm) const
 {
 	std::string figureInfo = "Shape Type : Circle\n";
 
@@ -44,8 +44,10 @@ CCircle::CCircle(CPoint const & center, double radius,
 	const std::string & fillColor, const std::string& outlineColor)
 	: m_center(center), m_radius(radius)
 {
-	SetFillColor(fillColor);
-	SetOutlineColor(outlineColor);
+	if (radius > 0) {
+		SetFillColor(fillColor);
+		SetOutlineColor(outlineColor);
+	}
 }
 
 

@@ -25,7 +25,7 @@ double CTriangle::GetPerimeter() const
 }
 
 
-void CTriangle::ShowProperties(std::ostream & strm) const
+void CTriangle::AppendProperties(std::ostream & strm) const
 {
 	std::string figureInfo = "Shape Type : Triangle\n";
 

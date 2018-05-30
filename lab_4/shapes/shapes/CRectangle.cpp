@@ -22,8 +22,11 @@ CRectangle::CRectangle(CPoint leftTop, double width, double height,
 	const std::string& fillColor, const std::string& outlineColor)
 	: m_leftTop(leftTop), m_width(width), m_height(height)
 {
-	SetFillColor(fillColor);
-	SetOutlineColor(outlineColor);
+	if (width > 0 && height > 0) {
+		SetFillColor(fillColor);
+		SetOutlineColor(outlineColor);
+	}
+
 }
 
 
@@ -52,7 +55,7 @@ double CRectangle::GetHeight() const
 }
 
 
-void CRectangle::ShowProperties(std::ostream & strm) const
+void CRectangle::AppendProperties(std::ostream & strm) const
 {
 	std::string figureInfo = "Shape Type : Rectangle\n";
 

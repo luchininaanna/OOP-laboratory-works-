@@ -9,7 +9,7 @@ public:
 	std::string ToString() const override;
 
 protected:
-	virtual void ShowProperties(std::ostream & strm) const = 0;
+	virtual void AppendProperties(std::ostream & strm) const = 0;
 
 private:
 	std::string m_outlineColor;

@@ -16,7 +16,7 @@ public:
 	CPoint GetVertex3() const;
 	
 protected:
-	void ShowProperties(std::ostream & strm) const override;
+	void AppendProperties(std::ostream & strm) const override;
 
 private:
 	double GetSideLength(CPoint const & p1, CPoint const & p2) const;
